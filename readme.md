@@ -1,4 +1,7 @@
 # flask 开发一个简易的网上商城 (预计一个月左右基本功能实现)
+
+### [文档与坑实时更新](https://github.com/sunhuachuang/flask-online-store/tree/master/docs)
+
 ### 特点
 1. 前台全部采用api接口的方式（json形式交互）。 后台采用传统的渲染web页面的方式。
 2. 目录结构采用功能式的分层结构。[flask项目的结构浅议](https://github.com/sunhuachuang/sun-blog/blob/master/program/flask/flask-dir.md)
