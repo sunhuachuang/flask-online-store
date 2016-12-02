@@ -5,8 +5,7 @@ from .models import db, cache
 __version__ = '0.1'
 __status__ = 'dev'
 __description__ = 'Simple shopsite system powered by Flask'
-__author__ = 'huachuang'
-__email__ = 'huachuang20@gmail.com'
+__github__ = 'https://github.com/sunhuachuang/flask-online-store'
 __license__ = "MIT License"
 
 def create_app():

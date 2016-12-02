@@ -1,6 +1,4 @@
-#!/usr/bin/python3
-
-from yikelong import create_app
+from flask_online_store import create_app
 
 app = create_app()
 
