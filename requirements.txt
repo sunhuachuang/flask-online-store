@@ -1,0 +1,12 @@
+Flask
+Flask-Admin
+Flask-Login
+Flask-SqlAlchemy
+Flask-WTF
+Flask-Script
+Flask-DebugToolbar
+Flask-Cache
+Fabric
+gunicorn
+greenlet
+MySQL-python
