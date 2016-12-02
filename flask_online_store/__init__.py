@@ -16,7 +16,7 @@ def create_app():
     # a new config.py in instance to reload the config.py
     app.config.from_pyfile('config.py')
 
-    #register_database(app)
+    register_database(app)
     register_blueprint(app)
     #init_login(app)
 
@@ -29,8 +29,9 @@ def register_log():
 
 def register_database(app):
     db.init_app(app)
-    #db.app = app
-    cache.init_app(app)
+    db.app = app # application not registered on db instance and no application bound to current context
+    #cache.init_app(app)
+    db.create_all()
 
 def register_blueprint(app):
     from .views import register_blueprints

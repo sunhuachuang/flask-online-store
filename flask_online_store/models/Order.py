@@ -1,8 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
-from flask_cache import Cache
-
-db = SQLAlchemy()
-cache = Cache()
+from . import db
 
 class Order(db.Model):
     __tablename__ = 'orders'

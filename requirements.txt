@@ -11,3 +11,4 @@ Flask-Uploads
 Flask-WTF
 gunicorn
 greenlet
+pymysql

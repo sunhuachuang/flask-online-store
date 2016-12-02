@@ -1,4 +1,6 @@
 from datetime import datetime
+from . import db
+from .Category import Category
 
 class Product(db.Model):
     __tablename__ = 'products'
@@ -8,7 +10,7 @@ class Product(db.Model):
     pub_date = db.Column(db.DateTime)
 
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
-    category = db.relationship('Category', backref=db.backref('products', lazy='dynamic'))
+    category = db.relationship(Category, backref=db.backref('products', lazy='dynamic'))
 
     def __init__(self, title, body, category, pub_date=None):
         self.title = title
