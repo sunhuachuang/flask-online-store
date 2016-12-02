@@ -12,12 +12,13 @@ def create_app():
     app = Flask(__name__, instance_relative_config=True)
 
     app.config.from_object('config')
+
+    # a new config.py in instance to reload the config.py
     app.config.from_pyfile('config.py')
 
-    register_database(app)
+    #register_database(app)
     register_blueprint(app)
-    init_login(app)
-    create_admin(app, db)
+    #init_login(app)
 
     return app
 
@@ -28,7 +29,7 @@ def register_log():
 
 def register_database(app):
     db.init_app(app)
-    db.app = app
+    #db.app = app
     cache.init_app(app)
 
 def register_blueprint(app):

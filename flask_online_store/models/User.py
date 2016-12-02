@@ -1,20 +1,13 @@
-from flask_sqlalchemy import SQLAlchemy
-from flask_cache import Cache
-
-db = SQLAlchemy()
-cache = Cache()
-
 class User(db.Model):
-    __tablename__ = 'user'
+    __tablename__ = 'users'
 
-    user_id = db.Column(db.BIGINT, primary_key=True, autoincrement=True)
-    user_name = db.Column(db.Unicode(64))
-    user_qq = db.Column(db.Unicode(16))
-    user_mail = db.Column(db.Unicode(64))
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    username = db.Column(db.String(80), unique=True)
+    email = db.Column(db.String(80), unique=True)
     password = db.Column(db.Unicode(128))
 
-    def __init__(self, user_name, password):
-        self.user_name = user_name
+    def __init__(self, username, password):
+        self.user_name = username
         self.password = password
 
     # Flask-Login integration

@@ -23,6 +23,8 @@
    ...
 
 ### 构建步骤
+1. pip3 install -r requirements.txt
+2. nginx_flask_online_store.config, 设置hosts解析到本地 127.0.0.1 fos.dev api.fos.dev admin.fos.dev
 ...
 
 ### roadmap
