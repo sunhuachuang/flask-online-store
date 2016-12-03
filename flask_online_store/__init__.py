@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_login import LoginManager
 from .models import db, cache
+import os
 
 __version__ = '0.1'
 __status__ = 'dev'
@@ -14,7 +15,7 @@ def create_app():
     app.config.from_object('config')
 
     # a new config.py in instance to reload the config.py
-    app.config.from_pyfile('config.py')
+    app.config.from_pyfile(os.path.abspath('.')+os.sep+'config.py')
 
     register_database(app)
     register_blueprint(app)
