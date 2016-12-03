@@ -15,7 +15,7 @@ def create_app():
     app.config.from_object('config')
 
     # a new config.py in instance to reload the config.py
-    app.config.from_pyfile(os.path.abspath('.')+os.sep+'config.py')
+    app.config.from_pyfile('config.py')
 
     register_database(app)
     register_blueprint(app)
