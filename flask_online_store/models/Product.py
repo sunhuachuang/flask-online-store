@@ -9,7 +9,7 @@ class Product(db.Model):
     body = db.Column(db.Text)
     pub_date = db.Column(db.DateTime)
 
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
+    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
     category = db.relationship('Category',
         backref=db.backref('products', lazy='dynamic'))
 
