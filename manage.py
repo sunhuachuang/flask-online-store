@@ -25,6 +25,11 @@ def schema_create():
     db.create_all()
     print('you had create all tables')
 
+@manager.command
+def schema_drop():
+    db.drop_all()
+    print('you had drop all tables')
+
 @manager.option('-u', '--name', dest='name', default='admin')
 @manager.option('-p', '--password', dest='password', default='123456')
 def create_user(name, password):

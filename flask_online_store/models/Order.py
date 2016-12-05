@@ -1,5 +1,6 @@
-from . import db
+from . import db, addTimeToModel
 
+@addTimeToModel
 class Order(db.Model):
     __tablename__ = 'orders'
 
