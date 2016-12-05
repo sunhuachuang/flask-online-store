@@ -8,6 +8,6 @@ SQLALCHEMY_DATABASE_URI = 'mysql://username:password@server/fos'
 改为
 
 ```
-SQLALCHEMY_DATABASE_URI = 'mysql://username:password@server/fos'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://username:password@server/fos'
 ```
 这个包支持 2 ~ 3.5.
