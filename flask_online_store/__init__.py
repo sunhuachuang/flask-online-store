@@ -31,7 +31,6 @@ def register_database(app):
     db.init_app(app)
     db.app = app # application not registered on db instance and no application bound to current context
     #cache.init_app(app)
-    db.create_all()
 
 def register_blueprint(app):
     from .views import register_blueprints
