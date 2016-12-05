@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_login import LoginManager
 from .models import db, cache
+import os
 
 __version__ = '0.1'
 __status__ = 'dev'
