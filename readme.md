@@ -28,7 +28,10 @@
 ### 构建步骤
 1. pip3 install -r requirements.txt
 2. 配置nginx_flask_online_store.config文件, 设置hosts解析到本地 127.0.0.1 fos.dev api.fos.dev admin.fos.dev
-3. 进入mysql(默认采用mysql, [可选数据库](http://flask-sqlalchemy.pocoo.org/2.1/config/))， create database fos;
+3. 在instance文件下新建config.py文件， 填写个人隐私配置， 覆盖最外层的config.py
+4. 配置mysql(默认采用mysql, [可选数据库](http://flask-sqlalchemy.pocoo.org/2.1/config/))
+5. python manage.py db_create #新建数据库
+6. python manage.py schema_create #新建表
 ...
 
 ### roadmap

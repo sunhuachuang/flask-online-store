@@ -5,7 +5,6 @@ from flask_online_store.models import db, User
 app = create_app()
 manager = Manager(app)
 
-
 @manager.command
 def db_create(force=False):
     if force:
