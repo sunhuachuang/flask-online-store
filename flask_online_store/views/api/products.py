@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, session, redirect, url_for, request, flash, g, jsonify, abort
 from flask_restful import Resource
 
-class Product(Resource):
+class ProductView(Resource):
     def get(self, id=None):
         return {'test': 'hello, word from product'}
 

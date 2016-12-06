@@ -9,6 +9,7 @@ Flask-Script
 Flask-SqlAlchemy
 Flask-Uploads
 Flask-WTF
+bcrypt
 gunicorn
 greenlet
 pymysql

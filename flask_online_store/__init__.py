@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_login import LoginManager
 from .models import db, cache
-import os
 
 __version__ = '0.1'
 __status__ = 'dev'
@@ -19,7 +18,7 @@ def create_app():
 
     register_database(app)
     register_blueprint(app)
-    #init_login(app)
+    init_login(app)
 
     return app
 
@@ -30,7 +29,7 @@ def register_log():
 
 def register_database(app):
     db.init_app(app)
-    db.app = app # application not registered on db instance and no application bound to current context
+    db.app = app
     #cache.init_app(app)
 
 def register_blueprint(app):
@@ -41,8 +40,7 @@ def init_login(app):
     login_manager = LoginManager()
     login_manager.init_app(app)
 
-    # Create user loader function
     @login_manager.user_loader
     def load_user(user_id):
         from .models import User
-        return db.session.query(User).get(user_id)
+        return User.query.get(user_id)

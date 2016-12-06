@@ -32,6 +32,12 @@ def schema_drop():
     print('you had drop all tables')
 
 @manager.command
+def schema_update():
+    db.drop_all()
+    db.create_all()
+    print('you had update all tables')
+
+@manager.command
 def list_routes():
     for rule in app.url_map.iter_rules():
         print(rule)
