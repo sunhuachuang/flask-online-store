@@ -42,15 +42,19 @@ def list_routes():
     for rule in app.url_map.iter_rules():
         print(rule)
 
+@manager.option('-n', '--number', dest='number', default='10')
+def load_users(number):
+    db.drop_all()
+    db.create_all()
 
-@manager.option('-u', '--name', dest='name', default='admin')
-@manager.option('-p', '--password', dest='password', default='123456')
-def create_user(name, password):
-    # admin = User(name, generate_password_hash(password))
-    # db.session.add(admin)
-    # db.session.commit()
-    pass
-
+    for i in range(0, int(number)):
+        user = User()
+        args = {}
+        args['username'] = 'demo'+str(i)
+        args['password'] = '123456'
+        args['email']    = 'demo'+str(i)+'@example.com'
+        args['phone']    = '1234567890'
+        user.save(args)
 
 if __name__ == '__main__':
     manager.run()

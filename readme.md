@@ -9,16 +9,16 @@
 4. python版本3.5 (2.7也适用)。
 5. 集成支付宝，微信的支付。
 6. 将遇到并解决web开发中常见的大部分场景。  
-   登录/注册,  
+   登录/注册, (restful is ok)  
    邮件,  
-   验证,  
+   验证,(restful is ok), 自搭脚手架  
    事件监听,  
    异常处理,  
-   orm,  
-   session管理,  
+   orm,(ok)  
+   session管理,(ok)  
    cache,  
    文件上传下载,  
-   安全保证,  
+   安全保证,(deving)  
    在线支付,  
    日志管理,  
    性能提升,  
@@ -36,9 +36,9 @@
 
 ### roadmap
 1. 基本目录结构 --ok
-2. 基本views(路径) --dev
+2. 基本views(路径) --ok
 3. 数据库与表的设计 --dev
-4. user处理 --waiting
+4. user处理 --dev
 5. products --waiting
 6. orders   --waiting
 7. paying   --waiting
