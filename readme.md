@@ -46,13 +46,22 @@
 9. ...
 
 ### 使用到的包
-1. Flask(0.11)
-2. Flask-Admin
-3. Flask-Login
-4. Flask-SqlAlchemy
-5. Flask-DebugToolbar
-6. Flask-Cache
-7. gunicorn
-8. ...
+1. Flask
+2. Flask-Cache
+3. Flask-DebugToolbar
+4. Flask-Exceptional
+5. Flask-Login
+6. Flask-Mail
+7. Flask-RESTful
+8. Flask-Script
+9. Flask-SqlAlchemy
+10. Flask-Uploads
+11. Flask-WTF
+12. gunicorn
+13. greenlet
+14. pymysql
+15. requests
+...
+
 
 #### 急速添加中...

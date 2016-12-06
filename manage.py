@@ -1,4 +1,5 @@
 from flask_script import Manager
+from flask_restful import url_for
 from flask_online_store import create_app
 from flask_online_store.models import db, User
 
@@ -29,6 +30,12 @@ def schema_create():
 def schema_drop():
     db.drop_all()
     print('you had drop all tables')
+
+@manager.command
+def list_routes():
+    for rule in app.url_map.iter_rules():
+        print(rule)
+
 
 @manager.option('-u', '--name', dest='name', default='admin')
 @manager.option('-p', '--password', dest='password', default='123456')

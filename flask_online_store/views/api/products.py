@@ -1,7 +1,15 @@
 from flask import Blueprint, render_template, session, redirect, url_for, request, flash, g, jsonify, abort
+from flask_restful import Resource
 
-api_products = Blueprint('api_products', __name__)
+class Product(Resource):
+    def get(self, id=None):
+        return {'test': 'hello, word from product'}
 
-@api_products.route('/')
-def index():
-    return 'hello world'
+    def post(self, id=None):
+        return {'test': 'hello, word from product'}
+
+    def put(self, id=None):
+        return {'test': 'hello, word'}
+
+    def delete(self, id=None):
+        return {'test': 'hello, word'}

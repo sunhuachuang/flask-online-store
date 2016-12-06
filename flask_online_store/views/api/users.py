@@ -1,16 +1,18 @@
 from flask import Blueprint, render_template, session, redirect, url_for, request, flash, g, jsonify, abort
-#from flask_login import requires_login
+from flask_restful import Resource
 
-api_users = Blueprint('api_users', __name__)
+from ...models import User
 
-@api_users.route('/me')
-def me():
-    pass
+class User(Resource):
+    def post(self, id=None):
+        pass
 
-@api_users.route('/logout')
-def logout():
-    pass
+    def get(self, id=None):
+        user = User.query.get_or_404(user_id)
+        return user.serialize(session['id'])
 
-@api_users.route('/login', methods=['GET', 'POST'])
-def login():
-    pass
+    def put(self, id=None):
+        pass
+
+    def delete(self, id=None):
+        pass

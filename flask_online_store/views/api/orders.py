@@ -1,16 +1,15 @@
 from flask import Blueprint, render_template, session, redirect, url_for, request, flash, g, jsonify, abort
-#from flask_login import requires_login
+from flask_restful import Resource
 
-api_orders = Blueprint('api_orders', __name__)
+class Order(Resource):
+    def get(self, id=None):
+        return {'test': 'hello, word from product'}
 
-@api_orders.route('/')
-def index():
-    pass
+    def post(self, id=None):
+        return {'test': 'hello, word from product'}
 
-@api_orders.route('/new', methods=['GET', 'POST'])
-def new():
-    pass
+    def put(self, id=None):
+        return {'test': 'hello, word'}
 
-@api_orders.route('/edit', methods=['GET', 'POST'])
-def edit():
-    pass
+    def delete(self, id=None):
+        return {'test': 'hello, word'}

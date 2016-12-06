@@ -12,3 +12,4 @@ Flask-WTF
 gunicorn
 greenlet
 pymysql
+requests
