@@ -13,6 +13,7 @@ def create_app():
 
     app.config.from_object('config')
 
+    # you must create a file: ../instance/config.py
     # a new config.py in instance to reload the config.py
     app.config.from_pyfile('config.py')
 
