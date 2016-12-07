@@ -9,7 +9,7 @@ manager = Manager(app)
 @manager.command
 def db_create(force=False):
     if force:
-        sql_config = app.config['SQLALCHEMY_DATABASE_URI'];
+        sql_config = app.config['SQLALCHEMY_DATABASE_URI']
         sql_configs = sql_config.split('/')
         db_name = sql_configs[-1]
         app.config['SQLALCHEMY_DATABASE_URI'] = '/'.join(sql_configs[0:-1])
