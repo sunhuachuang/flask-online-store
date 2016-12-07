@@ -32,7 +32,7 @@ def register_database(app):
     db.init_app(app)
     db.app = app
     #cache.init_app(app)
-
+    # db.create_all() #create tables;
 
 
 def register_blueprint(app):
