@@ -1,4 +1,3 @@
-from datetime import datetime
 from . import db, addTimeToModel
 
 @addTimeToModel
@@ -6,16 +5,17 @@ class Product(db.Model):
     __tablename__ = 'products'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80))
-    body = db.Column(db.Text)
-    pub_date = db.Column(db.DateTime)
-
+    name = db.Column(db.String(80))
+    price = db.Column(db.Numeric(10, 2))
+    number = db.Column(db.Integer)
+    detail = db.Column(db.Text)
+    tips   = db.Column(db.Text) # add for search speed
+    is_pub = db.Column(db.Boolean, default=True)
+    is_hot = db.Column(db.Boolean, default=False)
+    is_new = db.Column(db.Boolean, default=False)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
 
-    def __init__(self, title, body, category, pub_date=None):
-        self.title = title
-        self.body = body
-        if pub_date is None:
-            pub_date = datetime.utcnow()
-        self.pub_date = pub_date
-        self.category = category
+    # relations
+    category = db.relationship("Category", back_populates="products")
+    product_images = db.relationship('ProductImage', backref='product', lazy='dynamic')
+    order_details = db.relationship('OrderDetail', backref='product', lazy='dynamic')

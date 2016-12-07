@@ -54,7 +54,13 @@ def addOwnAndTimeToModel(cls):
 
     return cls
 
+
+from .User import User
+from .UserAddress import UserAddress
+
 from .Category import Category
 from .Product import Product
+from .ProductImage import ProductImage
+
 from .Order import Order
-from .User import User
+from .OrderDetail import OrderDetail
