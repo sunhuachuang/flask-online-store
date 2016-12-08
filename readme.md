@@ -63,5 +63,27 @@
 15. requests
 ...
 
+### restful 验证功能的使用
+restparsers文件夹中，存放着所有与验证相关的代码.  
+具体验证策略是通过type， 例如register_parser中的：
+```
+register_parser.add_argument('email', required=True, nullable=False, type=lambda v: check(v, email_regex), help="email cannot be blank!")
+```
+
+验证写好之后，在views中调用， 例如views/api/users.py
+```
+from ...restparsers.register_parser import register_parser
+
+class UserView(Resource):
+    def post(self, id=None):
+        args = register_parser.parse_args()
+        user = User()
+        user.save(args)
+
+```
+
+### command line 命令行的使用
+最外层的manager.py文件, 默认是python3的输出样式， 2版本需要手动修改一下print  
+例如 python3 manager.py db_create 对应的是其中的 db_create函数
 
 #### 急速添加中...
