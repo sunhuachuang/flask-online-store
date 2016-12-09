@@ -10,7 +10,7 @@ class LoginForm(FlaskForm):
     password = PasswordField('password',validators=[DataRequired(message= u'密码名不能为空')],
                              render_kw={'placeholder': u'密码'})
 
-    submit = SubmitField('登录',render_kw={'class': 'btn'})
+    submit_login = SubmitField('登录',render_kw={'class': 'btn'})
 
 
 #不一定需要
@@ -40,7 +40,7 @@ class RegisterForm(FlaskForm):
                                 validators=[DataRequired(message=u'验证码不能为空')],
                                 render_kw={'placeholder':u'请输入验证码'})
 
-    submit = SubmitField(u'注册',render_kw={'class': 'btn'})
+    submit_register = SubmitField(u'注册',render_kw={'class': 'btn'})
 
 
 
