@@ -5,10 +5,12 @@ from .api.order import OrderView
 from .api.product import ProductView
 from .api.security import LoginView, LogoutView
 
+from .admin import admin_static
 from .admin.user import admin_user
 from .admin.order import admin_order
 from .admin.product import admin_product
 from .admin.category import admin_category
+from .admin.security import admin_security
 
 def register_blueprints(app):
 
@@ -23,6 +25,8 @@ def register_blueprints(app):
 
     app.register_blueprint(api_bp, subdomain='api')
 
+    app.register_blueprint(admin_security, subdomain='admin')
+    app.register_blueprint(admin_static, subdomain='admin', url_prefix='/static')
     app.register_blueprint(admin_user, subdomain='admin', url_prefix='/users')
     app.register_blueprint(admin_order, subdomain='admin', url_prefix='/orders')
     app.register_blueprint(admin_product, subdomain='admin', url_prefix='/products')

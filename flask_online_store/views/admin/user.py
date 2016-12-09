@@ -5,7 +5,7 @@ admin_user = Blueprint('admin_user', __name__)
 
 @admin_user.route('/')
 def index():
-    pass
+    return 'hello, users'
 
 @admin_user.route('/new', methods=['GET', 'POST'])
 def new():
