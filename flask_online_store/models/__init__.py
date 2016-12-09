@@ -6,7 +6,6 @@ from flask_cache import Cache
 cache = Cache()
 db = SQLAlchemy()
 
-
 def addTimeToModel(cls):
     def before_create(cls):
         cls.created_at = datetime.now()
@@ -65,3 +64,5 @@ from .product_image import ProductImage
 
 from .order import Order
 from .order_detail import OrderDetail
+
+from .admin import Admin

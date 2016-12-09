@@ -15,8 +15,8 @@ class User(db.Model):
     phone     = db.Column(db.String(20))
 
     # relations
-    orders = db.relationship('Order', backref='user', lazy='dynamic')
-    user_addresses = db.relationship('UserAddress', backref='user', lazy='dynamic')
+    orders = db.relationship('Order', back_populates='user', lazy='dynamic')
+    user_addresses = db.relationship('UserAddress', back_populates='user', lazy='dynamic')
 
     # Flask-Login integration
     def is_authenticated(self):

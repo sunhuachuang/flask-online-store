@@ -14,4 +14,4 @@ class UserAddress(db.Model):
 
     # relations
     user = db.relationship("User", back_populates="user_addresses")
-    orders = db.relationship('Order', backref='user_address', lazy='dynamic')
+    orders = db.relationship('Order', back_populates='user_address', lazy='dynamic')

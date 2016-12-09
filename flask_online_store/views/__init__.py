@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_restful import Resource, Api
 from .api.user import UserView
-from .api.ordes import OrderView
+from .api.order import OrderView
 from .api.product import ProductView
 from .api.security import LoginView, LogoutView
 

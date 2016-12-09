@@ -17,5 +17,5 @@ class Product(db.Model):
 
     # relations
     category = db.relationship("Category", back_populates="products")
-    product_images = db.relationship('ProductImage', backref='product', lazy='dynamic')
-    order_details = db.relationship('OrderDetail', backref='product', lazy='dynamic')
+    product_images = db.relationship('ProductImage', back_populates='product', lazy='dynamic')
+    order_details = db.relationship('OrderDetail', back_populates='product', lazy='dynamic')

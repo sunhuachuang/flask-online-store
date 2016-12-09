@@ -1,7 +1,7 @@
 from flask_script import Manager
 from flask_restful import url_for
 from flask_online_store import create_app
-from flask_online_store.models import db, User
+from flask_online_store.models import db, User, Admin
 
 app = create_app()
 manager = Manager(app)
@@ -55,6 +55,13 @@ def load_users(number):
         args['email']    = 'demo'+str(i)+'@example.com'
         args['phone']    = '1234567890'
         user.save(args)
+
+@manager.option('-u', '--username', dest='username', default='admin')
+@manager.option('-p', '--password', dest='password', default='admin')
+def load_admin(username, password):
+    admin = Admin()
+    args = {'username': username, 'password': password, 'roles': ['ROLE_SUPER_ADMIN'], 'email': 'admin@examle.com'}
+    admin.save(args)
 
 if __name__ == '__main__':
     manager.run()
