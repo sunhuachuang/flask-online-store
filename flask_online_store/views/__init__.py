@@ -1,13 +1,14 @@
 from flask import Blueprint
 from flask_restful import Resource, Api
-from .api.users import UserView
-from .api.orders import OrderView
-from .api.products import ProductView
+from .api.user import UserView
+from .api.ordes import OrderView
+from .api.product import ProductView
 from .api.security import LoginView, LogoutView
 
-from .admin.users import admin_users
-from .admin.orders import admin_orders
-from .admin.products import admin_products
+from .admin.user import admin_user
+from .admin.order import admin_order
+from .admin.product import admin_product
+from .admin.category import admin_category
 
 def register_blueprints(app):
 
@@ -22,6 +23,7 @@ def register_blueprints(app):
 
     app.register_blueprint(api_bp, subdomain='api')
 
-    app.register_blueprint(admin_users, subdomain='admin', url_prefix='/users')
-    app.register_blueprint(admin_orders, subdomain='admin', url_prefix='/orders')
-    app.register_blueprint(admin_products, subdomain='admin', url_prefix='/products')
+    app.register_blueprint(admin_user, subdomain='admin', url_prefix='/users')
+    app.register_blueprint(admin_order, subdomain='admin', url_prefix='/orders')
+    app.register_blueprint(admin_product, subdomain='admin', url_prefix='/products')
+    app.register_blueprint(admin_category, subdomain='admin', url_prefix='/categories')
