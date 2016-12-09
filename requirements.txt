@@ -14,3 +14,4 @@ gunicorn
 greenlet
 pymysql
 requests
+WTForms
