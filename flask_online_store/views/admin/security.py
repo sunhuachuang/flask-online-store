@@ -3,6 +3,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 
 from ...models import Admin
 from ...utils.encrypt import decrypt
+from ...forms.admin import LoginForm, RegisterForm
 
 admin_security = Blueprint('admin_security', __name__, static_folder='static', static_url_path='/static')
 
@@ -13,9 +14,10 @@ def index():
 
 @admin_security.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+    form = LoginForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
         user = Admin.query.filter_by(username=username).first()
         if user:
             if decrypt(password, user.password):
@@ -26,7 +28,7 @@ def login():
         else:
             flash('no user')
 
-    return render_template('admin/login.html')
+    return render_template('admin/login.html', form=form)
 
 @admin_security.route('/logout')
 @login_required
