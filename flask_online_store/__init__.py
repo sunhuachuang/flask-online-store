@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
+from flask_debugtoolbar import DebugToolbarExtension
 from flask_login import LoginManager
 from .models import db, cache
-from flask_debugtoolbar import DebugToolbarExtension
 
 
 __version__ = '0.1'
@@ -13,19 +13,23 @@ __license__ = "MIT License"
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
-    toolbar = DebugToolbarExtension()  # Setting up the debug toolbar step1
+
     app.config.from_object('config')
 
     # you must create a file: ../instance/config.py
     # a new config.py in instance to reload the config.py
     app.config.from_pyfile('config.py')
-    toolbar.init_app(app)  # Setting up the debug toolbar step2
+
+    register_debug(app)
     register_database(app)
     register_blueprint(app)
     init_login(app)
 
     return app
 
+def register_debug(app):
+    toolbar = DebugToolbarExtension()  # Setting up the debug toolbar step1
+    toolbar.init_app(app)  # Setting up the debug toolbar step2
 
 def register_log():
     import logging
@@ -53,3 +57,8 @@ def init_login(app):
     def load_user(user_id):
         from .models import User
         return User.query.get(user_id)
+
+    def unauthorized():
+        return redirect(url_for('admin_security.login'))
+
+    login_manager.unauthorized = unauthorized
