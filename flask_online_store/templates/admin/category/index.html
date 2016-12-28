@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+
+{% block container %}
+<h1>hello</h1>
+<div class="row">
+  <div class="col-md-6">
+    <form class="form-inline">
+      <input class="form-control" placeholder="search value"/>
+      <button class="btn" type="submit">search</button>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <a href="{{ url_for('admin_category.new') }}" class="btn btn-lg btn-success">add category</a>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+  </thead>
+  <tbody>
+    {% for category in categories %}
+    <tr>
+      <td>{{ category.name }}</td>
+      <td>{{ category.description }}</td>
+      <td><a href="{{ url_for('admin_category.edit', id=category.id) }}" class="btn btn-sm btn-primary">edit</a></td>
+    </tr>
+    {% endfor %}
+  <tbody>
+  </tbody>
+</table>
+{% endblock %}

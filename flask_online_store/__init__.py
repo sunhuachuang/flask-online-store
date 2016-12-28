@@ -20,7 +20,7 @@ def create_app():
     # a new config.py in instance to reload the config.py
     app.config.from_pyfile('config.py')
 
-    register_debug(app)
+    #register_debug(app)
     register_database(app)
     register_blueprint(app)
     init_login(app)
@@ -55,8 +55,9 @@ def init_login(app):
 
     @login_manager.user_loader
     def load_user(user_id):
-        from .models import User
-        return User.query.get(user_id)
+        from .models import User, Admin
+        User.query.get(user_id)
+        return Admin.query.get(user_id)
 
     def unauthorized():
         return redirect(url_for('admin_security.login'))

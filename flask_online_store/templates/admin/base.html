@@ -14,7 +14,21 @@
       <nav class="navbar" style="background-color: #5bc0de">
         <div class="container-fluid">
           <div class="navbar-header">
-            <img alt="Brand" src="/static/images/logo.jpg">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">FOS</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="{{ url_for('admin_category.index') }}">category</a></li>
+              <li><a href="#">product</a></li>
+              <li><a href="#">user</a></li>
+              <li><a href="#">order</a></li>
+            </ul>
           </div>
         </div>
       </nav>

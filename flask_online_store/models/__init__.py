@@ -6,6 +6,15 @@ from flask_cache import Cache
 cache = Cache()
 db = SQLAlchemy()
 
+def db_save(obj):
+    if obj.id:
+        obj.before_create()
+    else:
+        obj.before_update()
+
+    db.session.add(obj)
+    db.session.commit()
+
 def addTimeToModel(cls):
     def before_create(cls):
         cls.created_at = datetime.now()

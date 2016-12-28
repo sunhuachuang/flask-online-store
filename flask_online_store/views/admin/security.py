@@ -21,7 +21,7 @@ def login():
         user = Admin.query.filter_by(username=username).first()
         if user:
             if decrypt(password, user.password):
-                #login_user(user)
+                login_user(user)
                 return redirect(url_for('admin_security.index'))
             else:
                 flash('password is wrong!')
