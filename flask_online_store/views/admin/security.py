@@ -24,9 +24,9 @@ def login():
                 login_user(user)
                 return redirect(url_for('admin_security.index'))
             else:
-                flash('password is wrong!')
+                flash('password is wrong!', 'error')
         else:
-            flash('no user')
+            flash('no user', 'error')
 
     return render_template('admin/login.html', form=form)
 
@@ -34,4 +34,4 @@ def login():
 @login_required
 def logout():
     logout_user()
-    redirect(url_for('admin_security.login'))
+    return redirect(url_for('admin_security.login'))

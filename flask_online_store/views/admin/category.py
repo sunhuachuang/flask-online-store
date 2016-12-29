@@ -24,10 +24,11 @@ def edit(id):
     return handle_new_and_edit(category)
 
 def handle_new_and_edit(category):
+    isNew = bool(category.id)
     form = CategoryForm(request.form, obj=category)
     if form.validate_on_submit():
-        print(category.name)
         db_save(category)
+        flash('edit success' if isNew else 'new success', 'success')
         return redirect(url_for('admin_category.index'))
 
     return render_template('admin/category/new_and_edit.html', form=form)

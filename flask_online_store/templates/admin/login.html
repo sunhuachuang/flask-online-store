@@ -5,11 +5,7 @@
 <div class="container">
   <div class="row" style="margin-top: 20%;">
     <div class="col-md-8 col-md-offset-2">
-      {% if get_flashed_messages() %}
-      <div class="alert alert-danger">
-        {{ get_flashed_messages()[0] }}
-      </div>
-      {% endif %}
+      {% include 'common/flash.html' %}
       <form class="form-horizontal" method="post">
         {{ form.csrf_token }}
         <div class="form-group">
