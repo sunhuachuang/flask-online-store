@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_required
 
 from ...models import Category, db_save
-from ...forms.admin import CategoryForm
+from ...forms.admin.category import CategoryForm
 
 admin_category = Blueprint('admin_category', __name__)
 

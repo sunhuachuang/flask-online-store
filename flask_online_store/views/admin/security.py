@@ -3,7 +3,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 
 from ...models import Admin
 from ...utils.encrypt import decrypt
-from ...forms.admin import LoginForm, RegisterForm
+from ...forms.admin.security import LoginForm, RegisterForm
 
 admin_security = Blueprint('admin_security', __name__, static_folder='static', static_url_path='/static')
 
