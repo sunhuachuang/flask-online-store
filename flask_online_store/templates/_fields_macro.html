@@ -1,10 +1,16 @@
-{% macro render_errors(field) %}
-  {% if field.errors %}
+{% macro render_form(field) %}
+<div class="form-group">
+  <label for="{{ field.id }}" class="col-md-2 col-md-offset-1 control-label">{{ field.label }}</label>
+  <div class="col-md-6">
+    <!-- http://stackoverflow.com/questions/5710391/converting-python-dict-to-kwargs -->
+    {{ field(**kwargs) }}
+    {% if field.errors %}
     <ul>
       {% for error in field.errors %}
-        <li class="text-danger">{{ error }}</li>
+      <li class="text-danger">{{ error }}</li>
       {% endfor %}
     </ul>
-  {% endif %}
-</dd>
+    {% endif %}
+  </div>
+</div>
 {% endmacro %}

@@ -1,3 +1,4 @@
 *.pyc
 instance/config.py
 .idea
+public/_debug_toolbar

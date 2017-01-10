@@ -14,12 +14,21 @@ def index():
 @admin_product.route('/new', methods=['GET', 'POST'])
 @login_required
 def new():
-    pass
+    product = Product()
+    return handle_new_and_edit(product)
 
-@admin_product.route('/edit', methods=['GET', 'POST'])
+@admin_product.route('/edit/<id>', methods=['GET', 'POST'])
 @login_required
-def edit():
-    pass
+def edit(id):
+    product = Product.query.get_or_404(id)
+    return handle_new_and_edit(product)
 
 def handle_new_and_edit(product):
-    pass
+    isNew = bool(product.id)
+    form = ProductForm(request.form, obj=product)
+    if form.validate_on_submit():
+        db_save(product)
+        flash('edit success' if isNew else 'new success', 'success')
+        return redirect(url_for('admin_product.index'))
+
+    return render_template('admin/product/new_and_edit.html', form=form)

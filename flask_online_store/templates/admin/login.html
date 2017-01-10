@@ -1,5 +1,5 @@
 {% extends "admin/base.html" %}
-{% from "_fields_macro.html" import render_errors %}
+{% from "_fields_macro.html" import render_form %}
 
 {% block body %}
 <div class="container">
@@ -8,20 +8,8 @@
       {% include 'common/flash.html' %}
       <form class="form-horizontal" method="post">
         {{ form.csrf_token }}
-        <div class="form-group">
-          <label for="username" class="col-sm-2 col-md-offset-1 control-label">username</label>
-          <div class="col-sm-4">
-            {{ form.username(class="form-control", placeholder="username") }}
-            {{ render_errors(form.username) }}
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="password" class="col-sm-2 col-md-offset-1 control-label">password</label>
-          <div class="col-sm-4">
-            {{ form.password(class="form-control", placeholder="password") }}
-            {{ render_errors(form.password) }}
-          </div>
-        </div>
+        {{ render_form(form.username, class="form-control", placeholder="username") }}
+        {{ render_form(form.password, class="form-control", placeholder="password") }}
         <div class="form-group">
           <div class="col-sm-offset-4 col-sm-10">
             <button type="submit" class="btn btn-default">submit</button>
