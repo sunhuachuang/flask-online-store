@@ -4,4 +4,5 @@
 [flask-script包的使用](https://github.com/sunhuachuang/flask-online-store/blob/master/docs/pits/flask-script.md)  
 [static静态文件的使用](https://github.com/sunhuachuang/flask-online-store/blob/master/docs/pits/flask-static.md)  
 [sqlAlchemy的使用](https://github.com/sunhuachuang/flask-online-store/blob/master/docs/pits/sql_alchemy.md)  
+[wtforms的使用](https://github.com/sunhuachuang/flask-online-store/blob/master/docs/pits/wtforms_flask.md)  
 

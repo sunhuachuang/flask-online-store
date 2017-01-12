@@ -28,8 +28,8 @@ class ProductForm(BaseForm):
     is_pub = BooleanField('is_pub')
     is_hot = BooleanField('is_hot')
     is_new = BooleanField('is_new')
-    category_id = SelectField('category_id',
-        choices=[(c.id, c.name) for c in Category.query.order_by('name')],
+    category_id = SelectField('category',
+        choices=[(str(c.id), c.name) for c in Category.query.order_by('name')],
         validators=[
             DataRequired()
         ])

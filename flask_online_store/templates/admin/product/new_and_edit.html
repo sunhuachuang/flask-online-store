@@ -11,6 +11,11 @@
         {{ render_form(form.name, class="form-control", placeholder="name") }}
         {{ render_form(form.price, class="form-control", placeholder="price") }}
         {{ render_form(form.number, class="form-control", placeholder="number") }}
+        {{ render_form(form.category_id, class="form-control", placeholder="category") }}
+        {{ render_form(form.is_pub, class="form-control") }}
+        {{ render_form(form.is_hot, class="form-control") }}
+        {{ render_form(form.is_new, class="form-control") }}
+        {{ render_form(form.tips, class="form-control", placeholder="tips", rows="5") }}
         {{ render_form(form.detail, class="form-control", placeholder="detail", rows="5") }}
         <div class="form-group">
           <div class="col-md-offset-5 col-md-8">

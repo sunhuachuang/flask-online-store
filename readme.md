@@ -30,8 +30,9 @@
 2. 配置nginx_flask_online_store.config文件, 设置hosts解析到本地 127.0.0.1 fos.dev api.fos.dev admin.fos.dev
 3. 在instance文件下新建config.py文件， 填写个人隐私配置， 覆盖最外层的config.py
 4. 配置mysql(默认采用mysql, [可选数据库](http://flask-sqlalchemy.pocoo.org/2.1/config/))
-5. python manage.py db_create #新建数据库
-6. python manage.py schema_create #新建表
+5. python(3) manage.py db_create #新建数据库
+6. python(3) manage.py schema_create #新建表
+7. python(3) run.py
 ...
 
 ### roadmap
@@ -39,7 +40,7 @@
 2. 基本views(路径) --ok
 3. 数据库与表的设计 --dev
 4. user处理 --dev
-5. products --waiting
+5. products --dev
 6. orders   --waiting
 7. paying   --waiting
 8. server_config --waiting
