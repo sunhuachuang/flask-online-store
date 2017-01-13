@@ -1,4 +1,4 @@
-# wtforms flalk 结合的坑
+# wtforms flask 结合的坑
 #### 如果是一个select 表单， 内容是 sqlalchemy 的对象
 ```python
 # productForm中的category设置方法
