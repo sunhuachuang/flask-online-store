@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, request
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_login import LoginManager
+from flask_uploads import configure_uploads
 from .models import db, cache
 
 
@@ -23,6 +24,8 @@ def create_app():
     register_debug(app)
     register_database(app)
     register_blueprint(app)
+    register_jinja2_extension(app)
+    register_upload(app)
     init_login(app)
 
     return app
@@ -36,18 +39,24 @@ def register_log():
     logging.basicConfig()
     logging.getLogger().setLevel(logging.DEBUG)
 
-
 def register_database(app):
     db.init_app(app)
     db.app = app
     #cache.init_app(app)
     # db.create_all() #create tables;
 
-
 def register_blueprint(app):
     from .views import register_blueprints
     register_blueprints(app)
 
+def register_jinja2_extension(app):
+    from .utils.jinja2 import register_processors, register_filters
+    register_processors(app)
+    register_filters(app)
+
+def register_upload(app):
+    from .utils.file_upload import product_images_upload
+    configure_uploads(app, (product_images_upload,))
 
 def init_login(app):
     login_manager = LoginManager()

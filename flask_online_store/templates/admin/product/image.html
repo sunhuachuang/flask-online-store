@@ -1,0 +1,42 @@
+{% extends "admin/base.html" %}
+{% from "_fields_macro.html" import render_form %}
+
+{% block container %}
+<div class="container">
+  <h1><a href="{{ url_for('admin_product.index') }}">product</a></h1>
+  <h2>{{ product.name }}</h2>
+  {% include 'common/flash.html' %}
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <table class="table">
+        <thead>
+          <th>id</th>
+          <th>filename</th>
+          <th>image</th>
+          <th></th>
+        </thead>
+        <tbody>
+          {% for image in product.product_images.all() %}
+          <tr>
+            <td>{{ image.id }}</td>
+            <td>{{ image.filename }}</td>
+            <td><img src="{{ image.get_image_url() }}" width="40px"/></td>
+            <td><a href="{{ url_for('admin_product.delete_image', id=image.id) }}" class="btn-sm btn-danger">delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <hr>
+      <form class="form-horizontal" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        {{ render_form(form.images[0]) }}
+        <div class="form-group">
+          <div class="col-md-offset-5 col-md-8">
+            <button type="submit" class="btn btn-default">submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

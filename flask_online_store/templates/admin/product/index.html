@@ -29,7 +29,10 @@
       <td>{{ product.price }}</td>
       <td>{{ product.number }}</td>
       <td>{{ product.tips }}</td>
-      <td><a href="{{ url_for('admin_product.edit', id=product.id) }}" class="btn btn-sm btn-primary">edit</a></td>
+      <td>
+        <a href="{{ url_for('admin_product.edit', id=product.id) }}" class="btn btn-sm btn-primary">edit</a>
+        <a href="{{ url_for('admin_product.image', id=product.id) }}" class="btn btn-sm btn-default">images</a>
+      </td>
     </tr>
     {% endfor %}
   <tbody>

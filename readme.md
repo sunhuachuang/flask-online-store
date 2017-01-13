@@ -1,4 +1,4 @@
-# flask 开发一个简易的网上商城 (预计一个月左右基本功能实现)
+# flask 开发一个简易的网上商城
 
 ### [文档与坑实时更新](https://github.com/sunhuachuang/flask-online-store/tree/master/docs)
 
@@ -9,15 +9,15 @@
 4. python版本3.5 (2.7也适用)。
 5. 集成支付宝，微信的支付。
 6. 将遇到并解决web开发中常见的大部分场景。  
-   登录/注册, (restful is ok)  
+   登录/注册, (ok)  
    邮件,  
-   验证,(restful is ok), 自搭脚手架  
+   验证,(restful is ok, admin is ok), 自搭脚手架  
    事件监听,  
    异常处理,  
    orm,(ok)  
    session管理,(ok)  
    cache,  
-   文件上传下载,  
+   文件上传下载,(ok)  
    安全保证,(deving)  
    在线支付,  
    日志管理,  

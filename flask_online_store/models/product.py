@@ -1,4 +1,5 @@
-from . import db, addTimeToModel
+from . import addTimeToModel, db, db_insert, db_update, db_delete, db_commit, db_persist
+from ..utils.file_upload import product_images_upload, delete_file
 
 @addTimeToModel
 class Product(db.Model):
@@ -19,3 +20,13 @@ class Product(db.Model):
     category = db.relationship("Category", back_populates="products")
     product_images = db.relationship('ProductImage', back_populates='product', lazy='dynamic')
     order_details = db.relationship('OrderDetail', back_populates='product', lazy='dynamic')
+
+    def save_product_images(self, files):
+        from . import ProductImage
+
+        for image in files:
+            filename = product_images_upload.save(image)
+            product_image = ProductImage().save(filename, self.id)
+            db_persist(product_image)
+
+        db_commit()
