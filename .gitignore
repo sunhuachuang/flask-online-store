@@ -3,3 +3,4 @@ instance/config.py
 .idea
 public/_debug_toolbar
 public/productimages
+.python-version
