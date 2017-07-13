@@ -30,33 +30,40 @@ def create_app():
 
     return app
 
+
 def register_debug(app):
     toolbar = DebugToolbarExtension()  # Setting up the debug toolbar step1
     toolbar.init_app(app)  # Setting up the debug toolbar step2
+
 
 def register_log():
     import logging
     logging.basicConfig()
     logging.getLogger().setLevel(logging.DEBUG)
 
+
 def register_database(app):
     db.init_app(app)
     db.app = app
-    #cache.init_app(app)
+    # cache.init_app(app)
     # db.create_all() #create tables;
+
 
 def register_blueprint(app):
     from .views import register_blueprints
     register_blueprints(app)
+
 
 def register_jinja2_extension(app):
     from .utils.jinja2 import register_processors, register_filters
     register_processors(app)
     register_filters(app)
 
+
 def register_upload(app):
     from .utils.file_upload import product_images_upload
     configure_uploads(app, (product_images_upload,))
+
 
 def init_login(app):
     login_manager = LoginManager()

@@ -6,10 +6,12 @@ from ...forms.admin.category import CategoryForm
 
 admin_category = Blueprint('admin_category', __name__)
 
+
 @admin_category.route('/')
 @login_required
 def index():
     return render_template('admin/category/index.html', categories=Category.query.all())
+
 
 @admin_category.route('/new', methods=['GET', 'POST'])
 @login_required
@@ -17,11 +19,13 @@ def new():
     category = Category()
     return handle_new_and_edit(category)
 
+
 @admin_category.route('/edit/<id>', methods=['GET', 'POST'])
 @login_required
 def edit(id):
     category = Category.query.get_or_404(id)
     return handle_new_and_edit(category)
+
 
 def handle_new_and_edit(category):
     isNew = bool(category.id)

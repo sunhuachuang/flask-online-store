@@ -6,20 +6,25 @@ from flask_cache import Cache
 cache = Cache()
 db = SQLAlchemy()
 
+
 def db_insert(obj):
     obj.before_create()
     db.session.add(obj)
+
 
 def db_update(obj):
     obj.before_update()
     db.session.add(obj)
 
+
 def db_delete(obj):
     obj.before_update()
     db.session.delete(obj)
 
+
 def db_commit():
     db.session.commit()
+
 
 def db_persist(obj):
     if obj.id:
@@ -29,9 +34,11 @@ def db_persist(obj):
 
     db.session.add(obj)
 
+
 def db_save(obj):
     db_persist(obj)
     db.session.commit()
+
 
 def addTimeToModel(cls):
     def before_create(cls):
@@ -55,6 +62,7 @@ def addTimeToModel(cls):
     cls.before_delete = before_delete
 
     return cls
+
 
 def addOwnAndTimeToModel(cls):
     def before_create(cls):

@@ -2,6 +2,8 @@ import imghdr
 from wtforms.validators import StopValidation
 
 # https://gist.github.com/msukmanowsky/8086892
+
+
 class ImageFileRequired(object):
     """
     Validates that an uploaded file from a flask_wtf FileField is, in fact an

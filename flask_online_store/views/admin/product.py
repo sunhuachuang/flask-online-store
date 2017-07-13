@@ -7,10 +7,12 @@ from ...forms.admin.product_image import MultiProductImageForm
 
 admin_product = Blueprint('admin_product', __name__)
 
+
 @admin_product.route('/')
 @login_required
 def index():
     return render_template('admin/product/index.html', products=Product.query.all())
+
 
 @admin_product.route('/<id>/images', methods=['GET', 'POST'])
 @login_required
@@ -25,6 +27,7 @@ def image(id):
 
     return render_template('admin/product/image.html', product=product, form=form)
 
+
 @admin_product.route('/images/delete/<id>')
 @login_required
 def delete_image(id):
@@ -35,17 +38,20 @@ def delete_image(id):
     flash('delete success', 'success')
     return redirect(url_for('admin_product.image', id=product_id))
 
+
 @admin_product.route('/new', methods=['GET', 'POST'])
 @login_required
 def new():
     product = Product()
     return handle_new_and_edit(product)
 
+
 @admin_product.route('/edit/<id>', methods=['GET', 'POST'])
 @login_required
 def edit(id):
     product = Product.query.get_or_404(id)
     return handle_new_and_edit(product)
+
 
 def handle_new_and_edit(product):
     isNew = bool(product.id)

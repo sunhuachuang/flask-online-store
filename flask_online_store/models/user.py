@@ -1,22 +1,24 @@
 from . import db, addTimeToModel
 from ..utils.encrypt import encrypt
 
+
 @addTimeToModel
 class User(db.Model):
     __tablename__ = 'users'
 
-    id        = db.Column(db.Integer, primary_key=True)
-    username  = db.Column(db.String(80), unique=True, nullable=False)
-    email     = db.Column(db.String(80), nullable=False)
-    password  = db.Column(db.String(255), nullable=False)
-    roles     = db.Column(db.JSON, nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(80), nullable=False)
+    password = db.Column(db.String(255), nullable=False)
+    roles = db.Column(db.JSON, nullable=False)
     is_active = db.Column(db.Boolean, nullable=False)
-    token     = db.Column(db.String(255), nullable=False)
-    phone     = db.Column(db.String(20))
+    token = db.Column(db.String(255), nullable=False)
+    phone = db.Column(db.String(20))
 
     # relations
     orders = db.relationship('Order', back_populates='user', lazy='dynamic')
-    user_addresses = db.relationship('UserAddress', back_populates='user', lazy='dynamic')
+    user_addresses = db.relationship(
+        'UserAddress', back_populates='user', lazy='dynamic')
 
     # Flask-Login integration
     def is_authenticated(self):

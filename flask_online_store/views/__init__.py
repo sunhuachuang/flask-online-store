@@ -12,6 +12,7 @@ from .admin.product import admin_product
 from .admin.category import admin_category
 from .admin.security import admin_security
 
+
 def register_blueprints(app):
 
     api_bp = Blueprint('api', __name__)
@@ -26,8 +27,12 @@ def register_blueprints(app):
     app.register_blueprint(api_bp, subdomain='api')
 
     app.register_blueprint(admin_security, subdomain='admin')
-    app.register_blueprint(admin_static, subdomain='admin', url_prefix='/static')
+    app.register_blueprint(
+        admin_static, subdomain='admin', url_prefix='/static')
     app.register_blueprint(admin_user, subdomain='admin', url_prefix='/users')
-    app.register_blueprint(admin_order, subdomain='admin', url_prefix='/orders')
-    app.register_blueprint(admin_product, subdomain='admin', url_prefix='/products')
-    app.register_blueprint(admin_category, subdomain='admin', url_prefix='/categories')
+    app.register_blueprint(
+        admin_order, subdomain='admin', url_prefix='/orders')
+    app.register_blueprint(
+        admin_product, subdomain='admin', url_prefix='/products')
+    app.register_blueprint(
+        admin_category, subdomain='admin', url_prefix='/categories')

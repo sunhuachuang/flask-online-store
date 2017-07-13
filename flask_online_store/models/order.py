@@ -1,5 +1,6 @@
 from . import db, addTimeToModel
 
+
 @addTimeToModel
 class Order(db.Model):
     __tablename__ = 'orders'
@@ -14,4 +15,5 @@ class Order(db.Model):
     # relations
     user = db.relationship("User", back_populates="orders")
     user_address = db.relationship("UserAddress", back_populates="orders")
-    order_details = db.relationship('OrderDetail', back_populates='order', lazy='dynamic')
+    order_details = db.relationship(
+        'OrderDetail', back_populates='order', lazy='dynamic')

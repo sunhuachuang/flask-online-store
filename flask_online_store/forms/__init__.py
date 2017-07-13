@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from flask import request
 
+
 class BaseForm(FlaskForm):
     def __init__(self, *args, **kwargs):
         if request.form and ('obj' in kwargs):

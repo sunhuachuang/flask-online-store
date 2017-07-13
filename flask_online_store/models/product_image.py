@@ -1,6 +1,7 @@
 from . import addTimeToModel, db, db_delete, db_commit
 from ..utils.file_upload import product_images_upload, delete_file
 
+
 @addTimeToModel
 class ProductImage(db.Model):
     __tablename__ = 'product_images'

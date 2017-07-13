@@ -4,32 +4,34 @@ from wtforms.validators import DataRequired
 from .. import BaseForm
 from ...models import Category
 
+
 class ProductForm(BaseForm):
     name = StringField('name',
-        validators=[
-            DataRequired()
-        ])
+                       validators=[
+                           DataRequired()
+                       ])
     price = DecimalField('price',
-        validators=[
-            DataRequired()
-        ])
+                         validators=[
+                             DataRequired()
+                         ])
     number = IntegerField('price',
-        validators=[
-            DataRequired()
-        ])
+                          validators=[
+                              DataRequired()
+                          ])
     detail = TextAreaField('detail',
-        validators=[
-            DataRequired()
-        ])
+                           validators=[
+                               DataRequired()
+                           ])
     tips = TextAreaField('tips',
-        validators=[
-            DataRequired()
-        ])
+                         validators=[
+                             DataRequired()
+                         ])
     is_pub = BooleanField('is_pub')
     is_hot = BooleanField('is_hot')
     is_new = BooleanField('is_new')
     category_id = SelectField('category',
-        choices=[(str(c.id), c.name) for c in Category.query.order_by('name')],
-        validators=[
-            DataRequired()
-        ])
+                              choices=[(str(c.id), c.name)
+                                       for c in Category.query.order_by('name')],
+                              validators=[
+                                  DataRequired()
+                              ])

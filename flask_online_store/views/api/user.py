@@ -5,6 +5,7 @@ from flask_login import current_user, login_user, login_required
 from ...models import User
 from ...restparsers.register_parser import register_parser
 
+
 class UserView(Resource):
     def post(self, id=None):
         args = register_parser.parse_args()

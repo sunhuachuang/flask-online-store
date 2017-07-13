@@ -5,12 +5,15 @@ from ...models import Admin
 from ...utils.encrypt import decrypt
 from ...forms.admin.security import LoginForm, RegisterForm
 
-admin_security = Blueprint('admin_security', __name__, static_folder='static', static_url_path='/static')
+admin_security = Blueprint('admin_security', __name__,
+                           static_folder='static', static_url_path='/static')
+
 
 @admin_security.route('/')
 @login_required
 def index():
     return render_template('admin/homepage.html')
+
 
 @admin_security.route('/login', methods=['GET', 'POST'])
 def login():
@@ -29,6 +32,7 @@ def login():
             flash('no user', 'error')
 
     return render_template('admin/login.html', form=form)
+
 
 @admin_security.route('/logout')
 @login_required
